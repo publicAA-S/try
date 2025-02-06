@@ -1,7 +1,10 @@
-const rssUrl = "https://news.google.com/rss/search?q=programming";
+const proxyUrl = 'https://cors-anywhere.herokuapp.com/';
+const rssUrl = 'https://news.google.com/rss/search?q=programming';
 
-async function a () {
-    console.log(await (await fetch(rssUrl)).text());
+async function fetchRss() {
+    const response = await fetch(proxyUrl + rssUrl);
+    const text = await response.text();
+    console.log(text);
 }
 
-a()
+fetchRss();
